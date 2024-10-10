@@ -1,18 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCombat : MonoBehaviour
+public class PlayerCombat : MonoBehaviour, ITakeDamage
 {
-    // Start is called before the first frame update
-    void Start()
+    public event Action OnTakeDamage;
+    public event Action OnDeath;
+    public void Death()
     {
-        
+        OnDeath?.Invoke();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(float damage)
     {
-        
+        OnTakeDamage?.Invoke();
     }
 }

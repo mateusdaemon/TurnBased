@@ -32,13 +32,31 @@ public class CombatManager : MonoBehaviour
         Instantiate(player, fightersPos.playerPos. position, player.transform.rotation);
     }
 
-    private void DecideFirst()
+    private void RegisterEnemyEvents()
+    {
+        enemy.OnAttack += HandleEnemyAtk;
+        enemy.OnSpecial += HandleEnemySAtk;
+        enemy.OnTakeDamage += HandleEnemyHurt;
+        enemy.OnDeath += HandleEnemyDie;
+    }
+
+    private void HandleEnemyAtk(float damage)
+    {
+        Debug.Log("Enemy caused" +  damage + " damage in the Player!");
+    }
+
+    private void HandleEnemySAtk(float damage)
     {
 
     }
 
-    private void RegisterEnemyEvents()
+    private void HandleEnemyDie()
     {
-        
+
+    }
+
+    private void HandleEnemyHurt()
+    {
+
     }
 }

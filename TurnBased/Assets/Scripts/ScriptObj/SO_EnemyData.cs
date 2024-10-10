@@ -8,4 +8,8 @@ public class SO_EnemyData : ScriptableObject
     public float Life;
     public float BaseDamage;
     public float SpecialDamage;
+    public float loyaltRes;
+    public float wisdomRes;
+    public float spirites;
+    public float expertiseRes;
 }

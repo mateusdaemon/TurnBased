@@ -1,16 +1,16 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Goblin : Enemy, IDealDamage, ITakeDamage
+public class Mushroom : Enemy, IDealDamage, ITakeDamage
 {
     public void Attack(SO_CombatData combat)
     {
-        if (combat.dungeonLevel % 3 == 0)
+        if (combat.dungeonLevel % 2 == 0)
         {
             SpecialAttack(combat);
-        } else
+        }
+        else
         {
             TriggerAttack(enemyData.BaseDamage * combat.dungeonLevel);
         }
@@ -18,7 +18,7 @@ public class Goblin : Enemy, IDealDamage, ITakeDamage
 
     public void SpecialAttack(SO_CombatData combat)
     {
-        TriggerSpecial(enemyData.BaseDamage * enemyData.SpecialDamage * combat.dungeonLevel);
+        TriggerSpecial(enemyData.SpecialDamage * combat.dungeonLevel);
     }
 
     public void TakeDamage(float damage)

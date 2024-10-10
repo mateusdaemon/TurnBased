@@ -1,16 +1,16 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Goblin : Enemy, IDealDamage, ITakeDamage
+public class Skeleton : Enemy, IDealDamage, ITakeDamage, ICure
 {
     public void Attack(SO_CombatData combat)
     {
         if (combat.dungeonLevel % 3 == 0)
         {
             SpecialAttack(combat);
-        } else
+        }
+        else
         {
             TriggerAttack(enemyData.BaseDamage * combat.dungeonLevel);
         }
@@ -18,6 +18,7 @@ public class Goblin : Enemy, IDealDamage, ITakeDamage
 
     public void SpecialAttack(SO_CombatData combat)
     {
+        Cure(enemyData.Life *= 1.1f);
         TriggerSpecial(enemyData.BaseDamage * enemyData.SpecialDamage * combat.dungeonLevel);
     }
 
@@ -29,5 +30,10 @@ public class Goblin : Enemy, IDealDamage, ITakeDamage
     public void Death()
     {
         TriggerDeath();
+    }
+
+    public void Cure(float amount)
+    {
+        enemyData.Life += amount;
     }
 }

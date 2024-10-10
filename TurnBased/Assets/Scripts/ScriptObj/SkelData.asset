@@ -15,3 +15,7 @@ MonoBehaviour:
   Life: 10
   BaseDamage: 4
   SpecialDamage: 1.1
+  loyaltRes: 50
+  wisdomRes: 100
+  spirites: 0
+  expertiseRes: 100

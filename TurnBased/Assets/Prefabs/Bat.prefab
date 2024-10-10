@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6523797295837522766}
   - component: {fileID: 7776070683854407799}
   - component: {fileID: 8690473644945326394}
-  - component: {fileID: 6314503395879197460}
+  - component: {fileID: -4732260094017976277}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Untagged
@@ -107,7 +107,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6314503395879197460
+--- !u!114 &-4732260094017976277
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,6 +116,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6442647770440876220}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e18426e3ec68d9409e819bd0b8b4d3c, type: 3}
+  m_Script: {fileID: 11500000, guid: d1ceeee5b0bd16b4e815c71493a1c6dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: aefcae5195c7cc345bbb8c75c683a2b6, type: 2}
