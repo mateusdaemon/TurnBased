@@ -8,47 +8,22 @@ public class CombatManager : MonoBehaviour
     private FightersPos fightersPos;
     private Enemy enemy;
     private PlayerCombat player;
-    private int turn = 0;
 
     void Start()
     {
         fightersPos = FindObjectOfType<FightersPos>();
-        enemy = PickEnemy().GetComponent<Enemy>();
-        player = combatData.player.GetComponent<PlayerCombat>();
+        enemy = combatData.GetNextEnemy();
+        player = combatData.player;
         SpawnFighters();
+
+        RegisterEnemyEvents();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (turn == 0)
-        {
-            DecideFirst();
-        }
+            
         
-    }
-
-    private GameObject PickEnemy()
-    {
-        GameObject fighter = null;
-        switch(combatData.dungeonLevel)
-        {
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-                int idx = Random.Range(0, combatData.aliveEnemies.Count - 1);
-                fighter = combatData.aliveEnemies[idx];
-                break;
-            case 5:
-                fighter = combatData.witch;
-                break;
-            case 6:
-                fighter = combatData.boss;
-                break;
-        }
-
-        return fighter;
     }
 
     private void SpawnFighters()
@@ -60,5 +35,10 @@ public class CombatManager : MonoBehaviour
     private void DecideFirst()
     {
 
+    }
+
+    private void RegisterEnemyEvents()
+    {
+        
     }
 }

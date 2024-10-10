@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IDealDamage
 {
-    void Attack();
-    void SpecialAttack();
+    void Attack(SO_CombatData combatData);
+    void SpecialAttack(SO_CombatData combatData);
 }

@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: SO_CombatData
   m_EditorClassIdentifier: 
   aliveEnemies:
-  - {fileID: 6436908665969777449, guid: 4709c42efd19c474ea1a437ec8f0178f, type: 3}
-  - {fileID: 350845585943825267, guid: 92a0d1c5010138d4ab1af6248ccb31e3, type: 3}
-  - {fileID: 5127707507706701377, guid: 0539156f70de80e4c964139bdc3282e6, type: 3}
-  - {fileID: 6442647770440876220, guid: 86276afa4b0cf2e4d996153ac7f9c367, type: 3}
-  player: {fileID: 2353669148296412301, guid: 583d311c8ff4c904fa5e456c1e1667f7, type: 3}
-  witch: {fileID: 8751156285206742960, guid: b5e07f9a9d183c1419e165121c21ae0e, type: 3}
-  boss: {fileID: 9041223650567665533, guid: fd278bcc20b4fdb468f30a5651d2b4ce, type: 3}
+  - {fileID: 6314503395879197460, guid: 86276afa4b0cf2e4d996153ac7f9c367, type: 3}
+  - {fileID: 1713942896771004603, guid: 4709c42efd19c474ea1a437ec8f0178f, type: 3}
+  - {fileID: -4311100498679874330, guid: 92a0d1c5010138d4ab1af6248ccb31e3, type: 3}
+  - {fileID: 3273391240680205467, guid: 0539156f70de80e4c964139bdc3282e6, type: 3}
+  player: {fileID: 6175950323294332954, guid: 583d311c8ff4c904fa5e456c1e1667f7, type: 3}
+  witch: {fileID: 2661354403743036848, guid: b5e07f9a9d183c1419e165121c21ae0e, type: 3}
+  boss: {fileID: -6625889690120630445, guid: fd278bcc20b4fdb468f30a5651d2b4ce, type: 3}
   dungeonLevel: 1
+  combatTurn: 0
