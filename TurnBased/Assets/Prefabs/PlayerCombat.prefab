@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 4977098629732785262}
   - component: {fileID: 8615835665471185861}
   - component: {fileID: 6175950323294332954}
+  - component: {fileID: 6179383813688188246}
   m_Layer: 0
-  m_Name: CombatPlayer
+  m_Name: PlayerCombat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,3 +120,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ac683e3b0314964d9b73bc7d749524e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6179383813688188246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2353669148296412301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0a0c055ad37b7b41b1ca2af776c4413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillsData: {fileID: 11400000, guid: f4600668bf4408a4486c09b78d5be054, type: 2}

@@ -7,6 +7,14 @@ public class PlayerCombat : MonoBehaviour, ITakeDamage
 {
     public event Action OnTakeDamage;
     public event Action OnDeath;
+
+    private PlayerSkills playerSkills;
+
+    private void Start()
+    {
+        playerSkills = GetComponent<PlayerSkills>();
+    }
+
     public void Death()
     {
         OnDeath?.Invoke();
