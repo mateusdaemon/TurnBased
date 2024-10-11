@@ -8,7 +8,9 @@ public class CombatHud : MonoBehaviour
 {
     [Header("Life Bars")]
     public Image playerLife;
+    public Image playerPic;
     public Image enemyLife;
+    public Image enemyPic;
 
     [Header("Skill buttons")]
     public Button loyalt;
@@ -21,15 +23,27 @@ public class CombatHud : MonoBehaviour
     public TextMeshProUGUI wisdomRes;
     public TextMeshProUGUI spiritRes;
     public TextMeshProUGUI expertiseRes;
-    // Start is called before the first frame update
-    void Start()
+    
+    public void SetPlayerLifeAmountUI(float amount)
     {
-        
+        playerLife.fillAmount = amount;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetEnemyLifeAmountUI(float amount)
     {
-        
+        playerLife.fillAmount = amount;
+    }
+
+    public void SetEnemyResUI(float loyalVal, float wisdomVal, float spiritVal, float expertiseVal)
+    {
+        loyaltRes.text = loyalVal + "%";
+        wisdomRes.text = wisdomVal + "%";
+        spiritRes.text = spiritVal + "%";
+        expertiseRes.text = expertiseVal + "%";
+    }
+
+    public void SetEnemyPicture(Sprite sprite)
+    {
+        enemyPic.sprite = sprite;
     }
 }

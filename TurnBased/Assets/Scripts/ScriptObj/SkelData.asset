@@ -17,5 +17,6 @@ MonoBehaviour:
   SpecialDamage: 1.1
   loyaltRes: 50
   wisdomRes: 100
-  spirites: 0
+  spiritRes: 0
   expertiseRes: 100
+  profilePic: {fileID: 21300000, guid: f52422ef74e7fdb4eabcb61cba396d9c, type: 3}

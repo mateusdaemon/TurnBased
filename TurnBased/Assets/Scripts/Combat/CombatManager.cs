@@ -5,6 +5,7 @@ using UnityEngine;
 public class CombatManager : MonoBehaviour
 {
     public SO_CombatData combatData;
+    private CombatHud hudCombat;
     private FightersPos fightersPos;
     private Enemy enemy;
     private PlayerCombat player;
@@ -12,11 +13,14 @@ public class CombatManager : MonoBehaviour
     void Start()
     {
         fightersPos = FindObjectOfType<FightersPos>();
+        hudCombat = FindObjectOfType<CombatHud>();
+
         enemy = combatData.GetNextEnemy();
         player = combatData.player;
-        SpawnFighters();
 
+        SpawnFighters();
         RegisterEnemyEvents();
+        FillEnemyHudInfo(enemy.enemyData);
     }
 
     // Update is called once per frame
@@ -40,9 +44,18 @@ public class CombatManager : MonoBehaviour
         enemy.OnDeath += HandleEnemyDie;
     }
 
+    private void FillEnemyHudInfo(SO_EnemyData eneData)
+    {
+        hudCombat.SetEnemyResUI(eneData.loyaltRes,
+                                eneData.wisdomRes,
+                                eneData.spiritRes,
+                                eneData.expertiseRes);
+        hudCombat.SetEnemyPicture(eneData.profilePic);
+    }
+
     private void HandleEnemyAtk(float damage)
     {
-        Debug.Log("Enemy caused" +  damage + " damage in the Player!");
+        Debug.Log("Enemy caused " +  damage + " damage in the Player!");
     }
 
     private void HandleEnemySAtk(float damage)

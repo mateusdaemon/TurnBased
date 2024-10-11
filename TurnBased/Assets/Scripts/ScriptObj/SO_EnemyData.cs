@@ -10,6 +10,7 @@ public class SO_EnemyData : ScriptableObject
     public float SpecialDamage;
     public float loyaltRes;
     public float wisdomRes;
-    public float spirites;
+    public float spiritRes;
     public float expertiseRes;
+    public Sprite profilePic;
 }
