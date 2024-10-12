@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5399697598090967996}
   - component: {fileID: 6254812364684925005}
+  - component: {fileID: 4751279687488904430}
+  - component: {fileID: 3449825791870086348}
   m_Layer: 0
   m_Name: CombatManager
   m_TagString: Untagged
@@ -45,3 +47,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   combatData: {fileID: 11400000, guid: f6dbdb275f6e213418cc3fa1f85c938a, type: 2}
+--- !u!114 &4751279687488904430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7538566770922323502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73d88ddce93246d419034c47e0a05207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3449825791870086348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7538566770922323502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73d88ddce93246d419034c47e0a05207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

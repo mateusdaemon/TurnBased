@@ -11,6 +11,12 @@ public class Enemy: MonoBehaviour
     public event Action<float> OnSpecial;
     public event Action OnTakeDamage;
     public event Action OnDeath;
+    public float currentLife;
+
+    private void Start()
+    {
+        currentLife = enemyData.Life;
+    }
 
     // Métodos protegidos para invocar os eventos
     protected void TriggerAttack(float damage)

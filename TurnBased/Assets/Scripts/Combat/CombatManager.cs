@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class CombatManager : MonoBehaviour
@@ -9,6 +11,7 @@ public class CombatManager : MonoBehaviour
     private FightersPos fightersPos;
     private Enemy enemy;
     private PlayerCombat player;
+    private int fightTurn = 0;
 
     void Start()
     {
@@ -20,20 +23,32 @@ public class CombatManager : MonoBehaviour
 
         SpawnFighters();
         RegisterEnemyEvents();
+        RegisterPlayerEvents();
         FillEnemyHudInfo(enemy.enemyData);
+
+        DecideCombatOrder();
     }
 
     // Update is called once per frame
     void Update()
     {
-            
-        
+        PlayByTurn(fightTurn);
+    }
+
+    private void DecideCombatOrder()
+    {
+
+    }
+    
+    private void PlayByTurn(int turn)
+    {
+
     }
 
     private void SpawnFighters()
     {
-        Instantiate(enemy, fightersPos.enemyPos.position, enemy.transform.rotation);
-        Instantiate(player, fightersPos.playerPos. position, player.transform.rotation);
+        enemy = Instantiate(enemy, fightersPos.enemyPos.position, enemy.transform.rotation);
+        player = Instantiate(player, fightersPos.playerPos. position, player.transform.rotation);
     }
 
     private void RegisterEnemyEvents()
@@ -42,6 +57,13 @@ public class CombatManager : MonoBehaviour
         enemy.OnSpecial += HandleEnemySAtk;
         enemy.OnTakeDamage += HandleEnemyHurt;
         enemy.OnDeath += HandleEnemyDie;
+    }
+
+    private void RegisterPlayerEvents()
+    {
+        player.OnAttack += HandlePlayerAttack;
+        player.OnTakeDamage += HandlePlayerDamage;
+        player.OnDeath += HandlePlayerDie;
     }
 
     private void FillEnemyHudInfo(SO_EnemyData eneData)
@@ -53,14 +75,30 @@ public class CombatManager : MonoBehaviour
         hudCombat.SetEnemyPicture(eneData.profilePic);
     }
 
+
+    private void HandlePlayerAttack(Skill skill)
+    {
+        enemy.GetComponent<ITakeDamage>().TakeDamage(skill.baseDamage);
+    }
+
     private void HandleEnemyAtk(float damage)
     {
-        Debug.Log("Enemy caused " +  damage + " damage in the Player!");
+        player.GetComponent<ITakeDamage>().TakeDamage(damage);
     }
 
     private void HandleEnemySAtk(float damage)
     {
+        player.GetComponent<ITakeDamage>().TakeDamage(damage);
+    }
 
+    private void HandlePlayerDie()
+    {
+        
+    }
+
+    private void HandlePlayerDamage()
+    {
+        
     }
 
     private void HandleEnemyDie()
@@ -70,6 +108,6 @@ public class CombatManager : MonoBehaviour
 
     private void HandleEnemyHurt()
     {
-
+        hudCombat.SetEnemyLifeAmountUI(enemy.currentLife / enemy.enemyData.Life);
     }
 }

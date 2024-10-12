@@ -23,7 +23,7 @@ public class Goblin : Enemy, IDealDamage, ITakeDamage
 
     public void TakeDamage(float damage)
     {
-        enemyData.Life -= damage;
+        currentLife -= damage;
         TriggerTakeDamage();
     }
     public void Death()

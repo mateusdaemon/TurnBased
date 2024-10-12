@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface ISkillThrow
 {
-    void Activate(Skill skill);
+    void Activate();
 }

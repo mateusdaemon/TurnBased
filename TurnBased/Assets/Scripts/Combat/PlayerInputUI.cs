@@ -1,18 +1,44 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInputUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private CombatHud hudCombat;
+
+    public event Action LoyatAttack;
+    public event Action WisdomAttack;
+    public event Action SpiritAttack;
+    public event Action ExpertiseAttack;
+
+    private void Start()
     {
-        
+        hudCombat = FindObjectOfType<CombatHud>();
+
+        hudCombat.loyalt.onClick.AddListener(LoyalAttackAction);
+        hudCombat.wisdom.onClick.AddListener(WisdomAttackAction);
+        hudCombat.spirit.onClick.AddListener(SpiritAttackAction);
+        hudCombat.expertise.onClick.AddListener(ExpertiseAttackAction);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void ExpertiseAttackAction()
     {
-        
+        ExpertiseAttack?.Invoke();
+    }
+
+    private void SpiritAttackAction()
+    {
+        SpiritAttack?.Invoke();
+    }
+
+    private void WisdomAttackAction()
+    {
+        WisdomAttack?.Invoke();
+    }
+
+    private void LoyalAttackAction()
+    {
+        LoyatAttack?.Invoke();
     }
 }

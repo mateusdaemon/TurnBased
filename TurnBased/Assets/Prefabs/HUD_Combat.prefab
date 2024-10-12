@@ -238,6 +238,7 @@ GameObject:
   - component: {fileID: 6837511121512130263}
   - component: {fileID: 893958695173310934}
   - component: {fileID: 2759800440123799584}
+  - component: {fileID: 1298309324918920936}
   m_Layer: 5
   m_Name: HUD_Combat
   m_TagString: Untagged
@@ -354,6 +355,18 @@ MonoBehaviour:
   wisdomRes: {fileID: 7953253638242083512}
   spiritRes: {fileID: 5932278214149842588}
   expertiseRes: {fileID: 3608117478037962068}
+--- !u!114 &1298309324918920936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913732461832733318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73d88ddce93246d419034c47e0a05207, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1464417291312227979
 GameObject:
   m_ObjectHideFlags: 0

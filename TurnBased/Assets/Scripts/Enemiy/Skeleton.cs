@@ -24,7 +24,7 @@ public class Skeleton : Enemy, IDealDamage, ITakeDamage, ICure
 
     public void TakeDamage(float damage)
     {
-        enemyData.Life -= damage;
+        currentLife -= damage;
         TriggerTakeDamage();
     }
     public void Death()

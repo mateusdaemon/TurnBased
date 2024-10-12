@@ -31,7 +31,7 @@ public class CombatHud : MonoBehaviour
 
     public void SetEnemyLifeAmountUI(float amount)
     {
-        playerLife.fillAmount = amount;
+        enemyLife.fillAmount = amount;
     }
 
     public void SetEnemyResUI(float loyalVal, float wisdomVal, float spiritVal, float expertiseVal)

@@ -7,15 +7,23 @@ public class PlayerSkills : MonoBehaviour
 {
     public SO_PlayerSkills skillsData;
 
-    public void UseSkill(SkillType attribute)
+    public Skill UseSkill(SkillType attribute)
     {
+        Skill skillUsed = null;
+
         foreach (Skill skill in skillsData.activeSkills)
         {
             if (skill.attribute == attribute)
             {
-                skill.GetComponent<ISkillThrow>().Activate(skill);
-                break;
+                if (skill is ISkillThrow skillThrow)
+                {
+                    skillThrow.Activate();
+                    skillUsed = skill;
+                    break;
+                }
             }
         }
+
+        return skillUsed;
     }
 }

@@ -24,7 +24,7 @@ public class Mushroom : Enemy, IDealDamage, ITakeDamage, IPoison
 
     public void TakeDamage(float damage)
     {
-        enemyData.Life -= damage;
+        currentLife -= damage;
         TriggerTakeDamage();
     }
     public void Death()
