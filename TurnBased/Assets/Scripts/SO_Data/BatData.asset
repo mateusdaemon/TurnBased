@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 85c91f4f515629e48a0df664f93fd162, type: 3}
-  m_Name: MushData
+  m_Name: BatData
   m_EditorClassIdentifier: 
-  Life: 5
+  Life: 6
   BaseDamage: 3
-  SpecialDamage: 4
-  loyaltRes: 0
-  wisdomRes: 100
-  spiritRes: 50
-  expertiseRes: 100
-  profilePic: {fileID: 21300000, guid: 8c30ebbe280ea1f418e90b630b7b7ef3, type: 3}
+  SpecialDamage: 2
+  loyaltRes: 100
+  wisdomRes: 50
+  spiritRes: 100
+  expertiseRes: 0
+  profilePic: {fileID: 21300000, guid: 0d24394d5d9add848ba73c1ecda421c6, type: 3}

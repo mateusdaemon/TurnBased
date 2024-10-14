@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85c91f4f515629e48a0df664f93fd162, type: 3}
   m_Name: GoblinData
   m_EditorClassIdentifier: 
-  Life: 6
+  Life: 7
   BaseDamage: 3
   SpecialDamage: 1.5
   loyaltRes: 100
