@@ -3964,32 +3964,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9107677467601637251, guid: b1399268c7366b24c826384c054fa015, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1859203366}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1399268c7366b24c826384c054fa015, type: 3}
---- !u!1 &1859203353 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9107677467601637251, guid: b1399268c7366b24c826384c054fa015, type: 3}
-  m_PrefabInstance: {fileID: 1859203352}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1859203366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1859203353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce73f3d2531f3f14896ae1a8654930a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  areaDetect: 1
-  collectableLayer:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!1 &1914346370
 GameObject:
   m_ObjectHideFlags: 0
@@ -4254,17 +4230,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 332648094964064361, guid: 7a0088b89c559f047b739ef7098f3a4e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2366316027492015458, guid: 7a0088b89c559f047b739ef7098f3a4e, type: 3}
       propertyPath: m_Name
       value: HUD
-      objectReference: {fileID: 0}
-    - target: {fileID: 3207161636866449510, guid: 7a0088b89c559f047b739ef7098f3a4e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8383256343445382522, guid: 7a0088b89c559f047b739ef7098f3a4e, type: 3}
       propertyPath: m_Pivot.x

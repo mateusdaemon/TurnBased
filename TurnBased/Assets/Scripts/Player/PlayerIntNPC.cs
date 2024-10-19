@@ -6,6 +6,7 @@ public class PlayerIntNPC : MonoBehaviour
 {
     public float areaDetect;
     public LayerMask npcLayer;
+    Collider2D npcFind;
 
     // Start is called before the first frame update
     void Start()
@@ -16,22 +17,30 @@ public class PlayerIntNPC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        npcFind = Physics2D.OverlapCircle(transform.position, areaDetect, npcLayer);
     }
 
-    private void OnDrawGizmos()
+    public void InteractWithNPC()
     {
-        Collider2D npcFind = Physics2D.OverlapCircle(transform.position, areaDetect, npcLayer);
-
         if (npcFind)
         {
-            Gizmos.color = Color.red;
+            npcFind.gameObject.GetComponent<IDialogue>().StartDialogue(npcFind.gameObject.GetComponent<NPC>());
         }
-        else
-        {
-            Gizmos.color = Color.green;
-        }
-
-        Gizmos.DrawWireSphere(transform.position, areaDetect);
     }
+
+    //private void OnDrawGizmos()
+    //{
+    //    Collider2D npcFind = Physics2D.OverlapCircle(transform.position, areaDetect, npcLayer);
+
+    //    if (npcFind)
+    //    {
+    //        Gizmos.color = Color.red;
+    //    }
+    //    else
+    //    {
+    //        Gizmos.color = Color.green;
+    //    }
+
+    //    Gizmos.DrawWireSphere(transform.position, areaDetect);
+    //}
 }

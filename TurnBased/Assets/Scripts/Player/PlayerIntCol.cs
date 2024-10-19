@@ -6,7 +6,8 @@ public class PlayerIntCol : MonoBehaviour
 {
     public float areaDetect;
     public LayerMask collectableLayer;
-    
+    Collider2D chestFound;
+
 
     void Start()
     {
@@ -16,11 +17,6 @@ public class PlayerIntCol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Collider2D chestFound = Physics2D.OverlapCircle(transform.position, areaDetect, collectableLayer);
-
-        if (chestFound)
-        {
-            Debug.Log("Chest found!");
-        }
+        chestFound = Physics2D.OverlapCircle(transform.position, areaDetect, collectableLayer);
     }
 }

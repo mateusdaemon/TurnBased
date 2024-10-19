@@ -9,6 +9,8 @@ public class PlayerStd : MonoBehaviour
     private PlayerRender playerRender;
     private PlayerState playerState;
     private PlayerAnim playerAnim;
+    private PlayerIntNPC playerIntNPC;
+
     void Start()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -16,11 +18,12 @@ public class PlayerStd : MonoBehaviour
         playerRender = GetComponent<PlayerRender>();
         playerState = GetComponent<PlayerState>();
         playerAnim = GetComponent<PlayerAnim>();
+        playerIntNPC = GetComponent<PlayerIntNPC>();
 
         playerState.OnStateChange += playerAnim.SetAnim;
+        playerInput.InteractButton.onClick.AddListener(playerIntNPC.InteractWithNPC);
     }
 
-    // Update is called once per frame
     void Update()
     {
         playerMove.Move(playerInput.MovementInputDirection);

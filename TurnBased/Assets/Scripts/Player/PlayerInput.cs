@@ -1,16 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerInput : MonoBehaviour
 {
     public Vector2 MovementInputDirection { get; private set; }
+    public Button InteractButton { get; private set; }
     private FixedJoystick joystick;
+    private ControllerHud controllers;
 
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         joystick = FindObjectOfType<FixedJoystick>();
+        controllers = FindObjectOfType<ControllerHud>();
+        InteractButton = controllers.interactBtn;
+    }
+
+    void Start()
+    {
+
     }
 
     // Update is called once per frame

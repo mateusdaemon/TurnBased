@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4498502032253098507}
   - component: {fileID: 1715720354113927152}
   - component: {fileID: 3604348281302953134}
+  - component: {fileID: 5062653683326285959}
   m_Layer: 6
   m_Name: Warrior
   m_TagString: Untagged
@@ -142,3 +143,31 @@ CapsuleCollider2D:
   m_Offset: {x: -0.041932426, y: 0.6184179}
   m_Size: {x: 0.66641307, y: 1.1630224}
   m_Direction: 0
+--- !u!114 &5062653683326285959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2558769127702247772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68df8ac0c9d84eb499de9f534f4325b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profilePic: {fileID: 21300000, guid: 5e9bfca3f85350e49bcebb3321ee689e, type: 3}
+  npcName: Wimpy Warrior
+  npcTexts:
+  - Hmm, looks like you're lost. This place is for monsters and heroes like me. And
+    well... you don't seem to be either. Do you even know why you're here?
+  - "Yeah, that's what I thought. So let me explain, just so I don't waste your time.
+    If you beat all of us, you'll be crowned the Dungeon Master. They say you\u2019ll
+    get rich and all..."
+  - "But honestly, I don\u2019t care about getting rich. I just want to slay some
+    goblins and, you know... unbone a few skeletons."
+  - 'Now listen up: every enemy here has its own resistances. Depending on your attacks,
+    you might not even scratch them...'
+  - "So use your attributes wisely, or you won\u2019t even make it past the first
+    round..."
+  - And just so you know, I'm the best around here, so you'll probably find me waiting
+    at the end. Better be ready when you do.
