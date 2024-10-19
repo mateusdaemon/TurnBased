@@ -27,20 +27,4 @@ public class PlayerIntNPC : MonoBehaviour
             npcFind.gameObject.GetComponent<IDialogue>().StartDialogue(npcFind.gameObject.GetComponent<NPC>());
         }
     }
-
-    //private void OnDrawGizmos()
-    //{
-    //    Collider2D npcFind = Physics2D.OverlapCircle(transform.position, areaDetect, npcLayer);
-
-    //    if (npcFind)
-    //    {
-    //        Gizmos.color = Color.red;
-    //    }
-    //    else
-    //    {
-    //        Gizmos.color = Color.green;
-    //    }
-
-    //    Gizmos.DrawWireSphere(transform.position, areaDetect);
-    //}
 }

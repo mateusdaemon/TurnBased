@@ -7,6 +7,7 @@ public class PlayerInput : MonoBehaviour
 {
     public Vector2 MovementInputDirection { get; private set; }
     public Button InteractButton { get; private set; }
+
     private FixedJoystick joystick;
     private ControllerHud controllers;
 
