@@ -19,4 +19,12 @@ public class PlayerIntCol : MonoBehaviour
     {
         chestFound = Physics2D.OverlapCircle(transform.position, areaDetect, collectableLayer);
     }
+
+    public void CollectChest()
+    {
+        if (chestFound)
+        {
+            chestFound.gameObject.GetComponent<ICollect>().Collect();
+        }
+    }
 }

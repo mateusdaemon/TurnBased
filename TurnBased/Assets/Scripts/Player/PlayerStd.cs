@@ -10,6 +10,7 @@ public class PlayerStd : MonoBehaviour
     private PlayerState playerState;
     private PlayerAnim playerAnim;
     private PlayerIntNPC playerIntNPC;
+    private PlayerIntCol playerIntCol;
 
     void Start()
     {
@@ -19,9 +20,11 @@ public class PlayerStd : MonoBehaviour
         playerState = GetComponent<PlayerState>();
         playerAnim = GetComponent<PlayerAnim>();
         playerIntNPC = GetComponent<PlayerIntNPC>();
+        playerIntCol = GetComponent<PlayerIntCol>();
 
         playerState.OnStateChange += playerAnim.SetAnim;
         playerInput.InteractButton.onClick.AddListener(playerIntNPC.InteractWithNPC);
+        playerInput.InteractButton.onClick.AddListener(playerIntCol.CollectChest);
     }
 
     void Update()
