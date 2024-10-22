@@ -8,5 +8,6 @@ public class ChestCollect : MonoBehaviour, ICollect
     public void Collect()
     {
         rewardType = (SkillType)Random.Range(0, System.Enum.GetValues(typeof(SkillType)).Length);
+        GameManager.Instance.AddAttribute(rewardType);
     }
 }
