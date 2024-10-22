@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SO_PlayerAttribute", menuName = "ScriptableObjects/SO_PlayerAttribute")]
 public class SO_PlayerAttributes : ScriptableObject, ISerializationCallbackReceiver
 {
+    public int available;
     public int loyalty;
     public int wisdom;
     public int spirit;
@@ -16,6 +17,7 @@ public class SO_PlayerAttributes : ScriptableObject, ISerializationCallbackRecei
         wisdom = 1;
         spirit = 1;
         expertise = 1;
+        available = 1;
     }
 
     public void OnBeforeSerialize()

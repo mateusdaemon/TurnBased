@@ -39,5 +39,36 @@ public class StatsHud : MonoBehaviour
         wisdomVal.text = playerAttributes.wisdom.ToString();
         spiritVal.text = playerAttributes.spirit.ToString();
         expertiseVal.text = playerAttributes.expertise.ToString();
+        pointsTxt.text = playerAttributes.available.ToString();
+    }
+
+    public void UpLoyalAtt(int attributeVal)
+    {
+        loyalVal.text = "" + attributeVal;
+    }
+
+    public void UpSpiritAtt(int attributeVal)
+    {
+        spiritVal.text = "" + attributeVal;
+    }
+
+    public void UpWisdomAtt(int attributeVal)
+    {
+        wisdomVal.text = "" + attributeVal;
+    }
+
+    public void UpExpertiseAtt(int attributeVal)
+    {
+        expertiseVal.text = "" + attributeVal;
+    }
+
+    public void HideAddAttributeBtn()
+    {
+        incButtons.SetActive(false);
+    }
+
+    public void SetAvailablePoints(int count)
+    {
+        pointsTxt.text = count.ToString();
     }
 }

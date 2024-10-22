@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c376124ec834784c8553aa1a90e2666, type: 3}
   m_Name: SO_PlayerAttribute
   m_EditorClassIdentifier: 
+  available: 1
   loyalty: 1
   wisdom: 1
   spirit: 1
