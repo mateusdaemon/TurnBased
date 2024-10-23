@@ -66,6 +66,8 @@ public class GameManager : MonoBehaviour
                 StatsHud.Instance.UpExpertiseAtt(playerAttributes.expertise);
                 break;
         }
+
+        PopupsManager.Instance.ShowNewAttributePopup(attribute);
     }
 
     private void RegisterStatsBtnsEvents()

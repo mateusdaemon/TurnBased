@@ -8,7 +8,6 @@ public class PlayerIntCol : MonoBehaviour
     public LayerMask collectableLayer;
     Collider2D chestFound;
 
-
     void Start()
     {
         
