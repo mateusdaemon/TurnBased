@@ -9,21 +9,35 @@ public class PlayerCombat : MonoBehaviour, ITakeDamage
     public event Action<Skill> OnAttack;
     public event Action OnTakeDamage;
     public event Action OnDeath;
+    public SO_PlayerAttributes attributes;
 
     private float maxLife = 30;
     private float life = 30;
     private PlayerSkills playerSkills;
     private PlayerInputUI playerInputSkill;
+    private PlayerAnim playerAnim;
+    private PlayerState playerState;
 
     private void Start()
     {
         playerSkills = GetComponent<PlayerSkills>();
+        playerState = GetComponent<PlayerState>();
+        playerAnim = GetComponent<PlayerAnim>();
+
         playerInputSkill = FindObjectOfType<PlayerInputUI>();
 
         playerInputSkill.LoyatAttack += AttackLoyal;
         playerInputSkill.WisdomAttack += AttackWisdom;
         playerInputSkill.SpiritAttack += AttackSpirit;
         playerInputSkill.ExpertiseAttack += AttackExpertise;
+
+        OnAttack += PlayerAttackEvent;
+        playerState.OnStateChange += playerAnim.SetAnim;
+    }
+
+    private void PlayerAttackEvent(Skill skill)
+    {
+        playerState.ChangeState(State.Attack);
     }
 
     private void AttackExpertise()
@@ -49,6 +63,7 @@ public class PlayerCombat : MonoBehaviour, ITakeDamage
 
     public void Death()
     {
+        playerState.ChangeState(State.Death);
         OnDeath?.Invoke();
     }
 
@@ -61,6 +76,7 @@ public class PlayerCombat : MonoBehaviour, ITakeDamage
             Death();
         }
 
+        playerState.ChangeState(State.Hit);
         OnTakeDamage?.Invoke();
     }
 

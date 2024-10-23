@@ -7,6 +7,9 @@ public enum State
 {
     Walk,
     Idle,
+    Attack,
+    Hit,
+    Death,
     None
 }
 
@@ -29,6 +32,15 @@ public class PlayerState : MonoBehaviour
                 break;
             case State.Idle:
                 State = State.Idle;
+                break;
+            case State.Attack:
+                State = State.Attack;
+                break;
+            case State.Hit:
+                State = State.Hit;
+                break;
+            case State.Death:
+                State = State.Death;
                 break;
             case State.None:
                 State = State.None;

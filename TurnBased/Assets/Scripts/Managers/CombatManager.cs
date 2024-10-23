@@ -77,17 +77,35 @@ public class CombatManager : MonoBehaviour
 
     private void HandlePlayerAttack(Skill skill)
     {
-        enemy.GetComponent<ITakeDamage>().TakeDamage(skill.baseDamage);
+        float damageToEnemy = 0;
+
+        switch(skill.attribute)
+        {
+            case SkillType.Loyalt:
+                damageToEnemy = skill.baseDamage * player.attributes.loyalty * ((100 - enemy.enemyData.loyaltRes)/100);
+                break;
+            case SkillType.Spirit:
+                damageToEnemy = skill.baseDamage * player.attributes.spirit * ((100 - enemy.enemyData.spiritRes) / 100);
+                break;
+            case SkillType.Wisdom:
+                damageToEnemy = skill.baseDamage * player.attributes.wisdom * ((100 - enemy.enemyData.wisdomRes) / 100);
+                break;
+            case SkillType.Expertise:
+                damageToEnemy = skill.baseDamage * player.attributes.expertise * ((100 - enemy.enemyData.expertiseRes) / 100);
+                break;
+        }
+
+        enemy.GetComponent<ITakeDamage>().TakeDamage(damageToEnemy);
     }
 
     private void HandleEnemyAtk(float damage)
     {
-        player.GetComponent<ITakeDamage>().TakeDamage(damage);
+        player.GetComponent<ITakeDamage>().TakeDamage(damage * combatData.dungeonLevel);
     }
 
     private void HandleEnemySAtk(float damage)
     {
-        player.GetComponent<ITakeDamage>().TakeDamage(damage);
+        player.GetComponent<ITakeDamage>().TakeDamage(damage * combatData.dungeonLevel);
     }
 
     private void HandlePlayerDie()

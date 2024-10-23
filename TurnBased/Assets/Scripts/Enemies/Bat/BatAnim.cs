@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAnim : MonoBehaviour
+public class BatAnim : MonoBehaviour
 {
     private Animator animator;
 
@@ -15,13 +15,8 @@ public class PlayerAnim : MonoBehaviour
     {
         switch (state)
         {
-            case State.Walk:
-                animator.SetBool("walk", true);
-                animator.SetBool("idle", false);
-                break;
             case State.Idle:
                 animator.SetBool("idle", true);
-                animator.SetBool("walk", false);
                 break;
             case State.Attack:
                 animator.SetTrigger("attack");
