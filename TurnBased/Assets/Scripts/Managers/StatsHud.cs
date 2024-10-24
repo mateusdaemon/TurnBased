@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -69,6 +70,6 @@ public class StatsHud : MonoBehaviour
 
     public void SetAvailablePoints(int count)
     {
-        pointsTxt.text = count.ToString();
+        pointsTxt.text = "+" + count.ToString();
     }
 }

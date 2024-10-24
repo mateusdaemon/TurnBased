@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAttributes: {fileID: 11400000, guid: 484390604c11a8c478f481c95c54647f, type: 2}
+  combatData: {fileID: 11400000, guid: f6dbdb275f6e213418cc3fa1f85c938a, type: 2}

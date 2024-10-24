@@ -17,7 +17,13 @@ public class CombatManager : MonoBehaviour
         fightersPos = FindObjectOfType<FightersPos>();
         hudCombat = FindObjectOfType<CombatHud>();
 
+        if (combatData == null )
+        {
+            Debug.Log("combatData is null");
+        }
+
         enemy = combatData.GetNextEnemy();
+
         enemy.currentLife = enemy.enemyData.Life * combatData.dungeonLevel;
         player = combatData.player;
 
@@ -121,7 +127,7 @@ public class CombatManager : MonoBehaviour
 
     private void HandleEnemyDie()
     {
-
+        GameManager.Instance.LoadLootScene();
     }
 
     private void HandleEnemyHurt()

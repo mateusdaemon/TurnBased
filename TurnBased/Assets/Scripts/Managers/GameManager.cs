@@ -2,10 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public SO_PlayerAttributes playerAttributes;
+    public SO_CombatData combatData;
     public static GameManager Instance { get; private set; }
 
     private event Action OnChangeAtt;
@@ -124,5 +126,74 @@ public class GameManager : MonoBehaviour
             StatsHud.Instance.SetAvailablePoints(playerAttributes.available);
             OnChangeAtt?.Invoke();
         }
+    }
+
+    public void LoadNextFight()
+    {
+        string nextScene = null;
+
+        switch (combatData.dungeonLevel)
+        {
+            case 0:
+                nextScene = "Level1";
+                break;
+            case 1:
+                nextScene = "Level2";
+                break;
+            case 2:
+                nextScene = "Level3";
+                break;
+            case 3:
+                nextScene = "Level4";
+                break;
+            case 4:
+                nextScene = "Level5";
+                break;
+            case 5:
+                nextScene = "Level6";
+                break;
+            case 6:
+                nextScene = "Victory";
+                break;
+        }
+
+        ControllerHud.Instance.DisableControllerHUD();
+        combatData.dungeonLevel++;
+        LoadScene(nextScene);
+    }
+
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
+    internal void LoadLootScene()
+    {
+        string nextScene = null;
+
+        switch (combatData.dungeonLevel)
+        {
+            case 1:
+                nextScene = "Level1Loot";
+                break;
+            case 2:
+                nextScene = "Level2Loot";
+                break;
+            case 3:
+                nextScene = "Level3Loot";
+                break;
+            case 4:
+                nextScene = "Level4Loot";
+                break;
+            case 5:
+                nextScene = "Level5Loot";
+                break;
+        }
+
+        combatData.dungeonLevel++;
+        playerAttributes.available++;
+        ControllerHud.Instance.EnableControllerHUD();
+        StatsHud.Instance.SetAvailablePoints(playerAttributes.available);
+        LoadScene(nextScene);
     }
 }

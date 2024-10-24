@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SO_CombatData", menuName = "ScriptableObjects/SO_CombatData")]
-public class SO_CombatData : ScriptableObject
+public class SO_CombatData : ScriptableObject, ISerializationCallbackReceiver
 {
     public List<Enemy> aliveEnemies;
     public PlayerCombat player;
@@ -17,6 +17,7 @@ public class SO_CombatData : ScriptableObject
         Enemy fighter = null;
         switch (dungeonLevel)
         {
+            case 0:
             case 1:
             case 2:
             case 3:
@@ -33,5 +34,15 @@ public class SO_CombatData : ScriptableObject
         }
 
         return fighter;
+    }
+
+    public void OnAfterDeserialize()
+    {
+        dungeonLevel = 0;
+    }
+
+    public void OnBeforeSerialize()
+    {
+        
     }
 }

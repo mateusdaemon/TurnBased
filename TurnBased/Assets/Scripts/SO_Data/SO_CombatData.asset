@@ -20,5 +20,5 @@ MonoBehaviour:
   player: {fileID: 6175950323294332954, guid: 583d311c8ff4c904fa5e456c1e1667f7, type: 3}
   witch: {fileID: 2661354403743036848, guid: b5e07f9a9d183c1419e165121c21ae0e, type: 3}
   boss: {fileID: -6625889690120630445, guid: fd278bcc20b4fdb468f30a5651d2b4ce, type: 3}
-  dungeonLevel: 1
+  dungeonLevel: 0
   combatTurn: 0

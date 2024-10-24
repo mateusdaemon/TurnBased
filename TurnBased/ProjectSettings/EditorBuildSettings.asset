@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Prologue.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: fde52153eae5e1544a1c0c7ae27c929f
+  - enabled: 1
+    path: Assets/Scenes/Level1Loot.unity
+    guid: 2365f438aa22db24c9ce651dbe862bdc
   m_configObjects: {}
