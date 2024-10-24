@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Skeleton : Enemy, IDealDamage, ITakeDamage, ICure
 {
+    private SkeletonAnim skeletonAnim;
+
+    private void Awake()
+    {
+        skeletonAnim = GetComponent<SkeletonAnim>();
+    }
+
     public void Attack(SO_CombatData combat)
     {
         if (combat.dungeonLevel % 3 == 0)
@@ -12,23 +19,38 @@ public class Skeleton : Enemy, IDealDamage, ITakeDamage, ICure
         }
         else
         {
-            TriggerAttack(enemyData.BaseDamage * combat.dungeonLevel);
+            skeletonAnim.SetAnim(State.Attack);
+            TriggerAttack(enemyData.BaseDamage);
         }
     }
 
     public void SpecialAttack(SO_CombatData combat)
     {
-        Cure(enemyData.Life *= 1.1f);
-        TriggerSpecial(enemyData.BaseDamage * enemyData.SpecialDamage * combat.dungeonLevel);
+        Cure(enemyData.Life * 0.1f);
+        skeletonAnim.SetAnim(State.Shield);
+        TriggerSpecial(enemyData.BaseDamage * enemyData.SpecialDamage);
     }
 
     public void TakeDamage(float damage)
     {
-        currentLife -= damage;
+        if (damage != 0)
+        {
+            currentLife -= damage;
+            if (currentLife <= 0)
+            {
+                Death();
+            }
+            else
+            {
+                skeletonAnim.SetAnim(State.Hit);
+            }
+        }
+
         TriggerTakeDamage();
     }
     public void Death()
     {
+        skeletonAnim.SetAnim(State.Death);
         TriggerDeath();
     }
 

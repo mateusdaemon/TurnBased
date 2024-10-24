@@ -10,6 +10,8 @@ public enum State
     Attack,
     Hit,
     Death,
+    Special,
+    Shield,
     None
 }
 

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7476288668943121142}
   - component: {fileID: 8118361765065413731}
   - component: {fileID: -3989734316952214347}
+  - component: {fileID: -4464008644620661624}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: Untagged
@@ -120,3 +121,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 85df8574c74125648affa7855061e62a, type: 2}
+  currentLife: 0
+--- !u!114 &-4464008644620661624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350845585943825267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37b55f886f8ba344db6a40645c5dc5e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

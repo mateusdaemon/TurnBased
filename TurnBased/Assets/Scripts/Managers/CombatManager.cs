@@ -18,6 +18,7 @@ public class CombatManager : MonoBehaviour
         hudCombat = FindObjectOfType<CombatHud>();
 
         enemy = combatData.GetNextEnemy();
+        enemy.currentLife = enemy.enemyData.Life * combatData.dungeonLevel;
         player = combatData.player;
 
         SpawnFighters();

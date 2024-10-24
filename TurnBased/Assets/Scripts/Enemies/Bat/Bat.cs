@@ -32,8 +32,19 @@ public class Bat : Enemy, IDealDamage, ITakeDamage
 
     public void TakeDamage(float damage)
     {
-        currentLife -= damage;
-        batAnim.SetAnim(State.Hit);
+        if (damage != 0)
+        {
+            currentLife -= damage;
+            if (currentLife <= 0)
+            {
+                Death();
+            }
+            else
+            {
+                batAnim.SetAnim(State.Hit);
+            }
+        }
+
         TriggerTakeDamage();
     }
     public void Death()
