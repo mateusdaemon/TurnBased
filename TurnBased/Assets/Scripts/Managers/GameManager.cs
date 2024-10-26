@@ -190,7 +190,6 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
-        combatData.dungeonLevel++;
         playerAttributes.available++;
         ControllerHud.Instance.EnableControllerHUD();
         StatsHud.Instance.SetAvailablePoints(playerAttributes.available);
