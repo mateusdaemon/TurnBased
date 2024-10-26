@@ -68,6 +68,11 @@ public class StatsHud : MonoBehaviour
         incButtons.SetActive(false);
     }
 
+    public void EnableAttributeBtn()
+    {
+        incButtons.SetActive(true);
+    }
+
     public void SetAvailablePoints(int count)
     {
         pointsTxt.text = "+" + count.ToString();

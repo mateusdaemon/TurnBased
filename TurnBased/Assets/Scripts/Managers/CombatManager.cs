@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class CombatManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class CombatManager : MonoBehaviour
     private Enemy enemy;
     private PlayerCombat player;
     private int fightTurn = 0;
+    private bool playerTurn = false;
+    private bool fighterPlaying = false;
 
     void Start()
     {
@@ -43,12 +46,29 @@ public class CombatManager : MonoBehaviour
 
     private void DecideCombatOrder()
     {
-
+        playerTurn = Random.value < 0.5f;
     }
     
     private void PlayByTurn(int turn)
     {
+        if (!playerTurn && !fighterPlaying)
+        {
+            fighterPlaying = true;
+            Invoke("EnemyAttack", 2);
+        }
+    }
 
+    private void EnemyAttack()
+    {
+        enemy.GetComponent<IDealDamage>().Attack(combatData);
+        Invoke("PassTurn", 2);
+    }
+
+    private void PassTurn()
+    {
+        fighterPlaying = false;
+        playerTurn = !playerTurn;
+        Debug.Log("Player turn: " + playerTurn);
     }
 
     private void SpawnFighters()
@@ -84,6 +104,11 @@ public class CombatManager : MonoBehaviour
 
     private void HandlePlayerAttack(Skill skill)
     {
+        if (!playerTurn)
+        {
+            return;
+        }
+
         float damageToEnemy = 0;
 
         switch(skill.attribute)
@@ -103,16 +128,17 @@ public class CombatManager : MonoBehaviour
         }
 
         enemy.GetComponent<ITakeDamage>().TakeDamage(damageToEnemy);
+        PassTurn();
     }
 
     private void HandleEnemyAtk(float damage)
     {
-        player.GetComponent<ITakeDamage>().TakeDamage(damage * combatData.dungeonLevel);
+        player.GetComponent<ITakeDamage>().TakeDamage(damage);
     }
 
     private void HandleEnemySAtk(float damage)
     {
-        player.GetComponent<ITakeDamage>().TakeDamage(damage * combatData.dungeonLevel);
+        player.GetComponent<ITakeDamage>().TakeDamage(damage);
     }
 
     private void HandlePlayerDie()
@@ -122,7 +148,7 @@ public class CombatManager : MonoBehaviour
 
     private void HandlePlayerDamage()
     {
-        
+        hudCombat.SetPlayerLifeAmountUI(player.life / player.maxLife);
     }
 
     private void HandleEnemyDie()

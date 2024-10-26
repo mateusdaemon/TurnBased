@@ -39,4 +39,12 @@ public class PlayerInput : MonoBehaviour
             MovementInputDirection.Normalize();
         }
     }
+
+    internal void ResetMoveDirection()
+    {
+        if (joystick != null)
+        {
+            joystick.DeadZone = 0;
+        }
+    }
 }

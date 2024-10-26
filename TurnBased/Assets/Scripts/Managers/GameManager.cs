@@ -194,6 +194,7 @@ public class GameManager : MonoBehaviour
         playerAttributes.available++;
         ControllerHud.Instance.EnableControllerHUD();
         StatsHud.Instance.SetAvailablePoints(playerAttributes.available);
+        StatsHud.Instance.EnableAttributeBtn();
         LoadScene(nextScene);
     }
 }

@@ -26,6 +26,7 @@ public class PlayerStd : MonoBehaviour
         playerState.OnStateChange += playerAnim.SetAnim;
         playerInput.InteractButton.onClick.AddListener(playerIntNPC.InteractWithNPC);
         playerInput.InteractButton.onClick.AddListener(playerIntCol.CollectChest);
+        playerInput.ResetMoveDirection();
     }
 
     void Update()
