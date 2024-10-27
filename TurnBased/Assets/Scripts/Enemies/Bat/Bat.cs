@@ -5,10 +5,12 @@ using UnityEngine;
 public class Bat : Enemy, IDealDamage, ITakeDamage
 {
     private BatAnim batAnim;
+    private BatUI batUI;
 
     private void Awake()
     {
         batAnim = GetComponent<BatAnim>();
+        batUI = GetComponent<BatUI>();
     }
 
     public void Attack(SO_CombatData combat)
@@ -34,6 +36,7 @@ public class Bat : Enemy, IDealDamage, ITakeDamage
     {
         if (damage != 0)
         {
+            batUI.SetDmgTaken(damage);
             currentLife -= damage;
             if (currentLife <= 0)
             {

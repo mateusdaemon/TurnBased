@@ -5,10 +5,12 @@ using UnityEngine;
 public class Skeleton : Enemy, IDealDamage, ITakeDamage, ICure
 {
     private SkeletonAnim skeletonAnim;
+    private SkeletonUI skeletonUI;
 
     private void Awake()
     {
         skeletonAnim = GetComponent<SkeletonAnim>();
+        skeletonUI = GetComponent<SkeletonUI>();
     }
 
     public void Attack(SO_CombatData combat)
@@ -35,6 +37,7 @@ public class Skeleton : Enemy, IDealDamage, ITakeDamage, ICure
     {
         if (damage != 0)
         {
+            skeletonUI.SetDmgTaken(damage);
             currentLife -= damage;
             if (currentLife <= 0)
             {

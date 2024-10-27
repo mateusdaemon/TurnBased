@@ -6,10 +6,12 @@ using UnityEngine;
 public class Goblin : Enemy, IDealDamage, ITakeDamage
 {
     private GoblinAnim goblinAnim;
+    private GoblinUI goblinUI;
 
     private void Awake()
     {
         goblinAnim = GetComponent<GoblinAnim>();
+        goblinUI = GetComponent<GoblinUI>();
     }
     public void Attack(SO_CombatData combat)
     {
@@ -33,6 +35,7 @@ public class Goblin : Enemy, IDealDamage, ITakeDamage
     {
         if (damage != 0)
         {
+            goblinUI.SetDmgTaken(damage);
             currentLife -= damage;
             if (currentLife <= 0)
             {

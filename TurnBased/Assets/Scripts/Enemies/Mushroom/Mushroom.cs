@@ -5,10 +5,12 @@ using UnityEngine;
 public class Mushroom : Enemy, IDealDamage, ITakeDamage, IPoison
 {
     private MushroomAnim mushroomAnim;
+    private MushUI mushUI;
 
     private void Awake()
     {
         mushroomAnim = GetComponent<MushroomAnim>();
+        mushUI = GetComponent<MushUI>();
     }
 
     public void Attack(SO_CombatData combat)
@@ -35,6 +37,7 @@ public class Mushroom : Enemy, IDealDamage, ITakeDamage, IPoison
     {
         if (damage != 0)
         {
+            mushUI.SetDmgTaken(damage);
             currentLife -= damage;
             if (currentLife <= 0)
             {

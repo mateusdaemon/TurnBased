@@ -18,6 +18,7 @@ public class PlayerCombat : MonoBehaviour, ITakeDamage
     private PlayerInputUI playerInputSkill;
     private PlayerAnim playerAnim;
     private PlayerState playerState;
+    private PlayerCombatUI playerCombatUI;
 
     private void Start()
     {
@@ -25,6 +26,7 @@ public class PlayerCombat : MonoBehaviour, ITakeDamage
         playerSkills = GetComponent<PlayerSkills>();
         playerState = GetComponent<PlayerState>();
         playerAnim = GetComponent<PlayerAnim>();
+        playerCombatUI = GetComponent<PlayerCombatUI>();
 
         playerInputSkill = FindObjectOfType<PlayerInputUI>();
 
@@ -72,6 +74,8 @@ public class PlayerCombat : MonoBehaviour, ITakeDamage
     public void TakeDamage(float damage)
     {
         life -= damage;
+
+        playerCombatUI.SetDmgTaken(damage);
 
         if (life <= 0)
         {
