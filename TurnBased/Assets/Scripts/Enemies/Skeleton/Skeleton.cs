@@ -22,7 +22,7 @@ public class Skeleton : Enemy, IDealDamage, ITakeDamage, ICure
         else
         {
             skeletonAnim.SetAnim(State.Attack);
-            TriggerAttack(enemyData.BaseDamage);
+            TriggerAttack(enemyData.BaseDamage * combat.dungeonLevel);
         }
     }
 
@@ -30,7 +30,7 @@ public class Skeleton : Enemy, IDealDamage, ITakeDamage, ICure
     {
         Cure(enemyData.Life * 0.4f);
         skeletonAnim.SetAnim(State.Special);
-        TriggerSpecial(enemyData.BaseDamage * enemyData.SpecialDamage);
+        TriggerSpecial(0);
     }
 
     public void TakeDamage(float damage)

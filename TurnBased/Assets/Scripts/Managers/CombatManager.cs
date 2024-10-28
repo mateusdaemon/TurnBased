@@ -21,18 +21,12 @@ public class CombatManager : MonoBehaviour
         fightersPos = FindObjectOfType<FightersPos>();
         hudCombat = FindObjectOfType<CombatHud>();
 
-        if (combatData == null )
-        {
-            Debug.Log("combatData is null");
-        }
-
         enemy = combatData.GetNextEnemy();
 
         enemy.currentLife = enemy.enemyData.Life * combatData.dungeonLevel;
         player = combatData.player;
-        player.life = player.life + combatData.dungeonLevel;
-        player.maxLife = player.maxLife + combatData.dungeonLevel;
-
+        player.life += combatData.dungeonLevel;
+        player.maxLife += combatData.dungeonLevel;
 
         SpawnFighters();
         RegisterEnemyEvents();
