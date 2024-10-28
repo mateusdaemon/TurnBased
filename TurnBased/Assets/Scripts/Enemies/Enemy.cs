@@ -9,6 +9,7 @@ public class Enemy: MonoBehaviour
 
     public event Action<float> OnAttack;
     public event Action<float> OnSpecial;
+    public event Action OnCure;
     public event Action OnTakeDamage;
     public event Action OnDeath;
     public float currentLife;
@@ -37,5 +38,10 @@ public class Enemy: MonoBehaviour
     protected void TriggerDeath()
     {
         OnDeath?.Invoke();
+    }
+
+    protected void TriggerOnCure()
+    {
+        OnCure?.Invoke();
     }
 }

@@ -15,7 +15,7 @@ public class Skeleton : Enemy, IDealDamage, ITakeDamage, ICure
 
     public void Attack(SO_CombatData combat)
     {
-        if (combat.dungeonLevel % 3 == 0)
+        if (combat.combatTurn % 3 == 0)
         {
             SpecialAttack(combat);
         }
@@ -28,8 +28,8 @@ public class Skeleton : Enemy, IDealDamage, ITakeDamage, ICure
 
     public void SpecialAttack(SO_CombatData combat)
     {
-        Cure(enemyData.Life * 0.1f);
-        skeletonAnim.SetAnim(State.Shield);
+        Cure(enemyData.Life * 0.4f);
+        skeletonAnim.SetAnim(State.Special);
         TriggerSpecial(enemyData.BaseDamage * enemyData.SpecialDamage);
     }
 
@@ -59,6 +59,7 @@ public class Skeleton : Enemy, IDealDamage, ITakeDamage, ICure
 
     public void Cure(float amount)
     {
-        enemyData.Life += amount;
+        currentLife += amount;
+        TriggerOnCure();
     }
 }

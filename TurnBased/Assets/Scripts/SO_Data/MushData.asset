@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85c91f4f515629e48a0df664f93fd162, type: 3}
   m_Name: MushData
   m_EditorClassIdentifier: 
-  Life: 8
-  BaseDamage: 3
-  SpecialDamage: 4
+  Life: 11
+  BaseDamage: 5
+  SpecialDamage: 7
   loyaltRes: 0
   wisdomRes: 100
   spiritRes: 50

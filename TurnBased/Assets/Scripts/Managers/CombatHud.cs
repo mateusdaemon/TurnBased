@@ -28,6 +28,7 @@ public class CombatHud : MonoBehaviour
     public TextMeshProUGUI nextFighterTxt;
     public Image playerIndctr;
     public Image enemyIndctr;
+    public TextMeshProUGUI turnIndctr;
 
     [Header("Combat Results")]
     public GameObject resultPopup;
@@ -69,6 +70,11 @@ public class CombatHud : MonoBehaviour
             enemyIndctr.enabled = true;
             nextFighterTxt.text = "Enemy plays";
         }
+    }
+
+    public void TurnIndicator(int turn)
+    {
+        turnIndctr.text = turn.ToString();
     }
 
     public void SetCombatResult(bool playerWins)

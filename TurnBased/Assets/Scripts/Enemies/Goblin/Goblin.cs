@@ -15,7 +15,7 @@ public class Goblin : Enemy, IDealDamage, ITakeDamage
     }
     public void Attack(SO_CombatData combat)
     {
-        if (combat.dungeonLevel % 3 == 0)
+        if (combat.combatTurn % 3 == 0)
         {
             SpecialAttack(combat);
         } else
@@ -28,7 +28,7 @@ public class Goblin : Enemy, IDealDamage, ITakeDamage
     public void SpecialAttack(SO_CombatData combat)
     {
         goblinAnim.SetAnim(State.Special);
-        TriggerSpecial(enemyData.BaseDamage * enemyData.SpecialDamage * combat.dungeonLevel);
+        TriggerSpecial(enemyData.SpecialDamage * combat.dungeonLevel);
     }
 
     public void TakeDamage(float damage)

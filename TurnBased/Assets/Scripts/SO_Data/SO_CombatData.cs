@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [CreateAssetMenu(fileName = "SO_CombatData", menuName = "ScriptableObjects/SO_CombatData")]
 public class SO_CombatData : ScriptableObject, ISerializationCallbackReceiver
@@ -29,6 +31,7 @@ public class SO_CombatData : ScriptableObject, ISerializationCallbackReceiver
                 break;
             case 5:
                 fighter = witch;
+                SetWitchResistence(fighter);
                 break;
             case 6:
                 fighter = boss;
@@ -36,6 +39,27 @@ public class SO_CombatData : ScriptableObject, ISerializationCallbackReceiver
         }
 
         return fighter;
+    }
+
+    private void SetWitchResistence(Enemy fighter)
+    {
+        SkillType resisType = (SkillType)Random.Range(0, System.Enum.GetValues(typeof(SkillType)).Length);
+
+        switch (resisType)
+        {
+            case SkillType.Loyalt:
+                fighter.enemyData.loyaltRes = 50;
+                break;
+            case SkillType.Spirit:
+                fighter.enemyData.spiritRes = 50;
+                break;
+            case SkillType.Wisdom:
+                fighter.enemyData.wisdomRes = 50;
+                break;
+            case SkillType.Expertise:
+                fighter.enemyData.expertiseRes = 50;
+                break;
+        }
     }
 
     public void OnAfterDeserialize()

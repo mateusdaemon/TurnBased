@@ -11,10 +11,10 @@ public class CombatManager : MonoBehaviour
     private FightersPos fightersPos;
     private Enemy enemy;
     private PlayerCombat player;
-    private int fightTurn = 0;
     private bool playerTurn = false;
     private bool fighterPlaying = false;
     private bool combatGoing = false;
+    private bool playerFirst = false;
 
     void Start()
     {
@@ -30,6 +30,9 @@ public class CombatManager : MonoBehaviour
 
         enemy.currentLife = enemy.enemyData.Life * combatData.dungeonLevel;
         player = combatData.player;
+        player.life = player.life + combatData.dungeonLevel;
+        player.maxLife = player.maxLife + combatData.dungeonLevel;
+
 
         SpawnFighters();
         RegisterEnemyEvents();
@@ -37,24 +40,28 @@ public class CombatManager : MonoBehaviour
         FillEnemyHudInfo(enemy.enemyData);
 
         DecideCombatOrder();
+
+        combatData.combatTurn = 1;
+        hudCombat.TurnIndicator(combatData.combatTurn);
     }
 
     // Update is called once per frame
     void Update()
     {
         if (!combatGoing) return;
-        PlayByTurn(fightTurn);
+        PlayByTurn();
     }
 
     private void DecideCombatOrder()
     {
         playerTurn = Random.value < 0.5f;
         hudCombat.FighterIndicator(playerTurn);
+        playerFirst = playerTurn;
 
         combatGoing = true;
     }
     
-    private void PlayByTurn(int turn)
+    private void PlayByTurn()
     {
         if (!playerTurn && !fighterPlaying)
         {
@@ -73,6 +80,13 @@ public class CombatManager : MonoBehaviour
     {
         fighterPlaying = false;
         playerTurn = !playerTurn;
+
+        if (playerTurn == playerFirst)
+        {
+            combatData.combatTurn++;
+            hudCombat.TurnIndicator(combatData.combatTurn);
+        }
+
         hudCombat.FighterIndicator(playerTurn);
     }
 
@@ -86,8 +100,14 @@ public class CombatManager : MonoBehaviour
     {
         enemy.OnAttack += HandleEnemyAtk;
         enemy.OnSpecial += HandleEnemySAtk;
+        enemy.OnCure += HandleEnemyCure;
         enemy.OnTakeDamage += HandleEnemyHurt;
         enemy.OnDeath += HandleEnemyDie;
+    }
+
+    private void HandleEnemyCure()
+    {
+        hudCombat.SetEnemyLifeAmountUI(enemy.currentLife / enemy.enemyData.Life);
     }
 
     private void RegisterPlayerEvents()
@@ -132,7 +152,10 @@ public class CombatManager : MonoBehaviour
                 break;
         }
 
-        damageToEnemy += combatData.dungeonLevel;
+        if (damageToEnemy != 0)
+        {
+            damageToEnemy += combatData.dungeonLevel;
+        }
 
         enemy.GetComponent<ITakeDamage>().TakeDamage(damageToEnemy);
         PassTurn();
