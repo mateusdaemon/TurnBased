@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SO_CombatData", menuName = "ScriptableObjects/SO_CombatData")]
@@ -24,6 +25,7 @@ public class SO_CombatData : ScriptableObject, ISerializationCallbackReceiver
             case 4:
                 int idx = Random.Range(0, aliveEnemies.Count - 1);
                 fighter = aliveEnemies[idx];
+                aliveEnemies.RemoveAt(idx);
                 break;
             case 5:
                 fighter = witch;
@@ -41,8 +43,21 @@ public class SO_CombatData : ScriptableObject, ISerializationCallbackReceiver
         dungeonLevel = 0;
     }
 
+    public void ResetData()
+    {
+        dungeonLevel = 0;
+    }
+
     public void OnBeforeSerialize()
     {
         
+    }
+
+    public void SetAliveEnemies(List<Enemy> enemies)
+    {
+        foreach (Enemy enemy in enemies)
+        {
+            aliveEnemies.Add(enemy);
+        }        
     }
 }

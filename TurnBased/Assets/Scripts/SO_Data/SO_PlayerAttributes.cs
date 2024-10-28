@@ -24,4 +24,13 @@ public class SO_PlayerAttributes : ScriptableObject, ISerializationCallbackRecei
     {
         
     }
+
+    public void ResetAttributes()
+    {
+        loyalty = 1;
+        wisdom = 1;
+        spirit = 1;
+        expertise = 1;
+        available = 1;
+    }
 }

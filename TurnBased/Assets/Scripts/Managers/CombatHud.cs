@@ -29,6 +29,10 @@ public class CombatHud : MonoBehaviour
     public Image playerIndctr;
     public Image enemyIndctr;
 
+    [Header("Combat Results")]
+    public GameObject resultPopup;
+    public TextMeshProUGUI winnerFighter;
+
     public void SetPlayerLifeAmountUI(float amount)
     {
         playerLife.fillAmount = amount;
@@ -65,5 +69,18 @@ public class CombatHud : MonoBehaviour
             enemyIndctr.enabled = true;
             nextFighterTxt.text = "Enemy plays";
         }
+    }
+
+    public void SetCombatResult(bool playerWins)
+    {
+        if (playerWins)
+        {
+            winnerFighter.text = "YOU WIN!!";
+        } else
+        {
+            winnerFighter.text = "ENEMY WINS..";
+        }
+
+        resultPopup.SetActive(true);
     }
 }

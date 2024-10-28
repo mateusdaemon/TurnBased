@@ -22,7 +22,7 @@ public class PlayerInput : MonoBehaviour
 
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -44,7 +44,8 @@ public class PlayerInput : MonoBehaviour
     {
         if (joystick != null)
         {
-            joystick.DeadZone = 0;
+            joystick.OnPointerUp(null);
+            MovementInputDirection = Vector2.zero;
         }
     }
 }

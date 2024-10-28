@@ -40,7 +40,7 @@ public class StatsHud : MonoBehaviour
         wisdomVal.text = playerAttributes.wisdom.ToString();
         spiritVal.text = playerAttributes.spirit.ToString();
         expertiseVal.text = playerAttributes.expertise.ToString();
-        pointsTxt.text = playerAttributes.available.ToString();
+        pointsTxt.text = "+" + playerAttributes.available.ToString();
     }
 
     public void UpLoyalAtt(int attributeVal)

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public List<Enemy> enemies;
     public SO_PlayerAttributes playerAttributes;
     public SO_CombatData combatData;
     public static GameManager Instance { get; private set; }
@@ -29,6 +30,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         RegisterStatsBtnsEvents();
+
+        combatData.SetAliveEnemies(enemies);
         StatsHud.Instance.SetAvailablePoints(playerAttributes.available);
         OnChangeAtt += CheckAvailable;
     }
@@ -195,5 +198,16 @@ public class GameManager : MonoBehaviour
         StatsHud.Instance.SetAvailablePoints(playerAttributes.available);
         StatsHud.Instance.EnableAttributeBtn();
         LoadScene(nextScene);
+    }
+
+    internal void PlayerDied()
+    {
+        combatData.ResetData();
+        playerAttributes.ResetAttributes();
+        StatsHud.Instance.UpdateStats(playerAttributes);
+        ControllerHud.Instance.EnableControllerHUD();
+        StatsHud.Instance.EnableAttributeBtn();
+        combatData.SetAliveEnemies(enemies);
+        LoadScene("Prologue");
     }
 }

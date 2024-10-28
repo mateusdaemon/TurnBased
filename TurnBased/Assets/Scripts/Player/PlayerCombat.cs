@@ -22,7 +22,7 @@ public class PlayerCombat : MonoBehaviour, ITakeDamage
 
     private void Start()
     {
-        life = 30; maxLife = 30;
+        life = 15; maxLife = 15;
         playerSkills = GetComponent<PlayerSkills>();
         playerState = GetComponent<PlayerState>();
         playerAnim = GetComponent<PlayerAnim>();

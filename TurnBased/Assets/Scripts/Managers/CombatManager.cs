@@ -14,6 +14,7 @@ public class CombatManager : MonoBehaviour
     private int fightTurn = 0;
     private bool playerTurn = false;
     private bool fighterPlaying = false;
+    private bool combatGoing = false;
 
     void Start()
     {
@@ -41,6 +42,7 @@ public class CombatManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!combatGoing) return;
         PlayByTurn(fightTurn);
     }
 
@@ -48,6 +50,8 @@ public class CombatManager : MonoBehaviour
     {
         playerTurn = Random.value < 0.5f;
         hudCombat.FighterIndicator(playerTurn);
+
+        combatGoing = true;
     }
     
     private void PlayByTurn(int turn)
@@ -128,6 +132,8 @@ public class CombatManager : MonoBehaviour
                 break;
         }
 
+        damageToEnemy += combatData.dungeonLevel;
+
         enemy.GetComponent<ITakeDamage>().TakeDamage(damageToEnemy);
         PassTurn();
     }
@@ -144,6 +150,9 @@ public class CombatManager : MonoBehaviour
 
     private void HandlePlayerDie()
     {
+        combatGoing = false;
+        hudCombat.SetCombatResult(false);
+        Invoke("LoadPlayerDied", 3);
         
     }
 
@@ -154,11 +163,23 @@ public class CombatManager : MonoBehaviour
 
     private void HandleEnemyDie()
     {
-        GameManager.Instance.LoadLootScene();
+        combatGoing = false;
+        hudCombat.SetCombatResult(true);
+        Invoke("LoadLootScene", 3);
     }
 
     private void HandleEnemyHurt()
     {
         hudCombat.SetEnemyLifeAmountUI(enemy.currentLife / enemy.enemyData.Life);
+    }
+
+    private void LoadLootScene()
+    {
+        GameManager.Instance.LoadLootScene();
+    }
+
+    private void LoadPlayerDied()
+    {
+        GameManager.Instance.PlayerDied();
     }
 }
