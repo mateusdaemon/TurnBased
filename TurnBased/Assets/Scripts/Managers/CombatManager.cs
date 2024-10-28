@@ -23,12 +23,13 @@ public class CombatManager : MonoBehaviour
 
         enemy = combatData.GetNextEnemy();
 
-        enemy.currentLife = enemy.enemyData.Life * combatData.dungeonLevel;
         player = combatData.player;
-        player.life += combatData.dungeonLevel;
-        player.maxLife += combatData.dungeonLevel;
 
         SpawnFighters();
+        player.life += combatData.dungeonLevel;
+        player.maxLife += combatData.dungeonLevel;
+        enemy.currentLife = enemy.enemyData.Life * combatData.dungeonLevel;
+
         RegisterEnemyEvents();
         RegisterPlayerEvents();
         FillEnemyHudInfo(enemy.enemyData);

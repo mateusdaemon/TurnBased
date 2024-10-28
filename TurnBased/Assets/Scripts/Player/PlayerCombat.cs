@@ -11,8 +11,8 @@ public class PlayerCombat : MonoBehaviour, ITakeDamage
     public event Action OnDeath;
     public SO_PlayerAttributes attributes;
 
-    public float maxLife {  get; set; }
-    public float life { get; set; }
+    public float maxLife;
+    public float life;
     
     private PlayerSkills playerSkills;
     private PlayerInputUI playerInputSkill;
@@ -22,7 +22,8 @@ public class PlayerCombat : MonoBehaviour, ITakeDamage
 
     private void Start()
     {
-        life = 18; maxLife = 18;
+        life = 18; 
+        maxLife = 18;
         playerSkills = GetComponent<PlayerSkills>();
         playerState = GetComponent<PlayerState>();
         playerAnim = GetComponent<PlayerAnim>();
