@@ -47,6 +47,7 @@ public class CombatManager : MonoBehaviour
     private void DecideCombatOrder()
     {
         playerTurn = Random.value < 0.5f;
+        hudCombat.FighterIndicator(playerTurn);
     }
     
     private void PlayByTurn(int turn)
@@ -68,7 +69,7 @@ public class CombatManager : MonoBehaviour
     {
         fighterPlaying = false;
         playerTurn = !playerTurn;
-        Debug.Log("Player turn: " + playerTurn);
+        hudCombat.FighterIndicator(playerTurn);
     }
 
     private void SpawnFighters()

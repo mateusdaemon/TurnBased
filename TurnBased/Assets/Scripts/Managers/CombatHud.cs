@@ -23,7 +23,12 @@ public class CombatHud : MonoBehaviour
     public TextMeshProUGUI wisdomRes;
     public TextMeshProUGUI spiritRes;
     public TextMeshProUGUI expertiseRes;
-    
+
+    [Header("Turn Titles")]
+    public TextMeshProUGUI nextFighterTxt;
+    public Image playerIndctr;
+    public Image enemyIndctr;
+
     public void SetPlayerLifeAmountUI(float amount)
     {
         playerLife.fillAmount = amount;
@@ -45,5 +50,20 @@ public class CombatHud : MonoBehaviour
     public void SetEnemyPicture(Sprite sprite)
     {
         enemyPic.sprite = sprite;
+    }
+
+    public void FighterIndicator(bool playerTurn)
+    {
+        if (playerTurn)
+        {
+            playerIndctr.enabled = true;
+            enemyIndctr.enabled = false;
+            nextFighterTxt.text = "You play";
+        } else
+        {
+            playerIndctr.enabled = false;
+            enemyIndctr.enabled = true;
+            nextFighterTxt.text = "Enemy plays";
+        }
     }
 }
