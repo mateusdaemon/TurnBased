@@ -55,6 +55,11 @@ public class SO_CombatData : ScriptableObject, ISerializationCallbackReceiver
 
     public void SetAliveEnemies(List<Enemy> enemies)
     {
+        if (aliveEnemies != null)
+        {
+            aliveEnemies.Clear();
+        }
+
         foreach (Enemy enemy in enemies)
         {
             aliveEnemies.Add(enemy);

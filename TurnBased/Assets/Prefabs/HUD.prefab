@@ -350,7 +350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3961292529230556540
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2035,7 +2035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7682e7e57078bc24bbc138e2c2d6006b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerHUD: {fileID: 0}
+  controllerHUD: {fileID: 3207161636866449510}
   interactBtn: {fileID: 4223662965005591438}
 --- !u!114 &4297069665736538381
 MonoBehaviour:

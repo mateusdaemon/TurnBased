@@ -3185,10 +3185,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
-    - target: {fileID: 4931721168277229471, guid: 7a0088b89c559f047b739ef7098f3a4e, type: 3}
-      propertyPath: controllerHUD
-      value: 
-      objectReference: {fileID: 4791350699980708300}
     - target: {fileID: 8383256343445382522, guid: 7a0088b89c559f047b739ef7098f3a4e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3274,11 +3270,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a0088b89c559f047b739ef7098f3a4e, type: 3}
---- !u!1 &4791350699980708300 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3207161636866449510, guid: 7a0088b89c559f047b739ef7098f3a4e, type: 3}
-  m_PrefabInstance: {fileID: 4791350699980708299}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6259080531412717722
 PrefabInstance:
   m_ObjectHideFlags: 0
