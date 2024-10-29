@@ -10,7 +10,6 @@ public class PlayerCombat : MonoBehaviour, ITakeDamage
     public event Action OnTakeDamage;
     public event Action OnDeath;
     public SO_PlayerAttributes attributes;
-
     public float maxLife;
     public float life;
     
@@ -19,11 +18,10 @@ public class PlayerCombat : MonoBehaviour, ITakeDamage
     private PlayerAnim playerAnim;
     private PlayerState playerState;
     private PlayerCombatUI playerCombatUI;
+    private float baseLife = 18;
 
     private void Start()
     {
-        life = 18; 
-        maxLife = 18;
         playerSkills = GetComponent<PlayerSkills>();
         playerState = GetComponent<PlayerState>();
         playerAnim = GetComponent<PlayerAnim>();
@@ -89,5 +87,11 @@ public class PlayerCombat : MonoBehaviour, ITakeDamage
         }
 
         OnTakeDamage?.Invoke();
+    }
+
+    public void SetPlayerLife(float dungeonLevel)
+    {
+        life = baseLife + dungeonLevel;
+        maxLife = baseLife + dungeonLevel;
     }
 }

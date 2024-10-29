@@ -13,10 +13,11 @@ public class Enemy: MonoBehaviour
     public event Action OnTakeDamage;
     public event Action OnDeath;
     public float currentLife;
+    public float maxLife;
 
     private void Start()
     {
-        currentLife = enemyData.Life;
+        
     }
 
     // Métodos protegidos para invocar os eventos
@@ -43,5 +44,11 @@ public class Enemy: MonoBehaviour
     protected void TriggerOnCure()
     {
         OnCure?.Invoke();
+    }
+
+    public void SetEnemeyLife(int dungeonLevel)
+    {
+        currentLife = enemyData.Life * dungeonLevel;
+        maxLife = enemyData.Life * dungeonLevel;
     }
 }

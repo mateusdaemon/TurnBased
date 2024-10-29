@@ -11,6 +11,8 @@ public class CombatHud : MonoBehaviour
     public Image playerPic;
     public Image enemyLife;
     public Image enemyPic;
+    public TextMeshProUGUI playerLifetxt;
+    public TextMeshProUGUI enemyLifetxt;
 
     [Header("Skill buttons")]
     public Button loyalt;
@@ -42,6 +44,16 @@ public class CombatHud : MonoBehaviour
     public void SetEnemyLifeAmountUI(float amount)
     {
         enemyLife.fillAmount = amount;
+    }
+
+    public void SetPlayerLife(float life)
+    {
+        playerLifetxt.text = life.ToString();
+    }
+
+    public void SetEnemyLife(float life)
+    {
+        enemyLifetxt.text = life.ToString();
     }
 
     public void SetEnemyResUI(float loyalVal, float wisdomVal, float spiritVal, float expertiseVal)
@@ -88,5 +100,13 @@ public class CombatHud : MonoBehaviour
         }
 
         resultPopup.SetActive(true);
+    }
+
+    public void SetSkillBtns(bool interactable)
+    {
+        loyalt.interactable = interactable;
+        wisdom.interactable = interactable;
+        spirit.interactable = interactable;
+        expertise.interactable = interactable;
     }
 }

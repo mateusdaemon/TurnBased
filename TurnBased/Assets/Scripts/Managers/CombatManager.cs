@@ -21,14 +21,9 @@ public class CombatManager : MonoBehaviour
         fightersPos = FindObjectOfType<FightersPos>();
         hudCombat = FindObjectOfType<CombatHud>();
 
-        enemy = combatData.GetNextEnemy();
-
-        player = combatData.player;
-
         SpawnFighters();
-        player.life += combatData.dungeonLevel;
-        player.maxLife += combatData.dungeonLevel;
-        enemy.currentLife = enemy.enemyData.Life * combatData.dungeonLevel;
+        player.SetPlayerLife(combatData.dungeonLevel);
+        enemy.SetEnemeyLife(combatData.dungeonLevel);
 
         RegisterEnemyEvents();
         RegisterPlayerEvents();
@@ -38,6 +33,9 @@ public class CombatManager : MonoBehaviour
 
         combatData.combatTurn = 1;
         hudCombat.TurnIndicator(combatData.combatTurn);
+
+        hudCombat.SetEnemyLife(enemy.currentLife);
+        hudCombat.SetPlayerLife(player.life);
     }
 
     // Update is called once per frame
@@ -76,6 +74,8 @@ public class CombatManager : MonoBehaviour
         fighterPlaying = false;
         playerTurn = !playerTurn;
 
+        hudCombat.SetSkillBtns(playerTurn);
+
         if (playerTurn == playerFirst)
         {
             combatData.combatTurn++;
@@ -87,8 +87,8 @@ public class CombatManager : MonoBehaviour
 
     private void SpawnFighters()
     {
-        enemy = Instantiate(enemy, fightersPos.enemyPos.position, enemy.transform.rotation);
-        player = Instantiate(player, fightersPos.playerPos. position, player.transform.rotation);
+        enemy = Instantiate(combatData.GetNextEnemy(), fightersPos.enemyPos.position, new Quaternion());
+        player = Instantiate(combatData.player, fightersPos.playerPos. position, combatData.player.transform.rotation);
     }
 
     private void RegisterEnemyEvents()
@@ -102,7 +102,8 @@ public class CombatManager : MonoBehaviour
 
     private void HandleEnemyCure()
     {
-        hudCombat.SetEnemyLifeAmountUI(enemy.currentLife / enemy.enemyData.Life);
+        hudCombat.SetEnemyLifeAmountUI(enemy.currentLife / enemy.maxLife);
+        hudCombat.SetEnemyLife(enemy.currentLife);
     }
 
     private void RegisterPlayerEvents()
@@ -124,11 +125,6 @@ public class CombatManager : MonoBehaviour
 
     private void HandlePlayerAttack(Skill skill)
     {
-        if (!playerTurn)
-        {
-            return;
-        }
-
         float damageToEnemy = 0;
 
         switch(skill.attribute)
@@ -177,6 +173,7 @@ public class CombatManager : MonoBehaviour
     private void HandlePlayerDamage()
     {
         hudCombat.SetPlayerLifeAmountUI(player.life / player.maxLife);
+        hudCombat.SetPlayerLife(player.life);
     }
 
     private void HandleEnemyDie()
@@ -188,7 +185,8 @@ public class CombatManager : MonoBehaviour
 
     private void HandleEnemyHurt()
     {
-        hudCombat.SetEnemyLifeAmountUI(enemy.currentLife / enemy.enemyData.Life);
+        hudCombat.SetEnemyLifeAmountUI(enemy.currentLife / enemy.maxLife);
+        hudCombat.SetEnemyLife(enemy.currentLife);
     }
 
     private void LoadLootScene()
