@@ -12,6 +12,7 @@ public class Enemy: MonoBehaviour
     public event Action OnCure;
     public event Action OnTakeDamage;
     public event Action OnDeath;
+    public event Action OnChangeResis;
     public float currentLife;
     public float maxLife;
 
@@ -44,6 +45,11 @@ public class Enemy: MonoBehaviour
     protected void TriggerOnCure()
     {
         OnCure?.Invoke();
+    }
+
+    protected void TriggerOnChangeResis()
+    {
+        OnChangeResis?.Invoke();
     }
 
     public void SetEnemeyLife(int dungeonLevel)

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85c91f4f515629e48a0df664f93fd162, type: 3}
   m_Name: WitchData
   m_EditorClassIdentifier: 
-  Life: 7
-  BaseDamage: 4
-  SpecialDamage: 8
+  Life: 8
+  BaseDamage: 2
+  SpecialDamage: 5
   loyaltRes: 100
   wisdomRes: 100
   spiritRes: 100
-  expertiseRes: 100
+  expertiseRes: 50
   profilePic: {fileID: 21300000, guid: f52422ef74e7fdb4eabcb61cba396d9c, type: 3}

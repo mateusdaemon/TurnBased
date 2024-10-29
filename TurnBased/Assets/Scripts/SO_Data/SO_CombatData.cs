@@ -45,6 +45,11 @@ public class SO_CombatData : ScriptableObject, ISerializationCallbackReceiver
     {
         SkillType resisType = (SkillType)Random.Range(0, System.Enum.GetValues(typeof(SkillType)).Length);
 
+        fighter.enemyData.loyaltRes = 100;
+        fighter.enemyData.spiritRes = 100;
+        fighter.enemyData.wisdomRes = 100;
+        fighter.enemyData.expertiseRes = 100;
+
         switch (resisType)
         {
             case SkillType.Loyalt:
@@ -84,9 +89,6 @@ public class SO_CombatData : ScriptableObject, ISerializationCallbackReceiver
             aliveEnemies.Clear();
         }
 
-        foreach (Enemy enemy in enemies)
-        {
-            aliveEnemies.Add(enemy);
-        }        
+        aliveEnemies = enemies.OrderBy(enemy => Random.value).ToList();
     }
 }

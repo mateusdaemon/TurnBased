@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: S_BaseAttack
   m_EditorClassIdentifier: 
   skillName: Spirit Attack
-  baseDamage: 4
+  baseDamage: 5
   attribute: 2

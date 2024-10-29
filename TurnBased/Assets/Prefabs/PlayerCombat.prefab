@@ -259,6 +259,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attributes: {fileID: 11400000, guid: 484390604c11a8c478f481c95c54647f, type: 2}
+  maxLife: 0
+  life: 0
 --- !u!114 &6179383813688188246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,7 +371,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 30
   m_TargetDisplay: 0
 --- !u!114 &2375507426749218464
 MonoBehaviour:

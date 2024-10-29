@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: E_BaseAttack
   m_EditorClassIdentifier: 
   skillName: Expertise Attack
-  baseDamage: 3
+  baseDamage: 4
   attribute: 3

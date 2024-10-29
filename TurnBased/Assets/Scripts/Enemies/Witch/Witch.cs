@@ -15,12 +15,20 @@ public class Witch : Enemy, IDealDamage, ITakeDamage
 
     public void Attack(SO_CombatData combat)
     {
-
+        if (combat.combatTurn % 3 == 0)
+        {
+            SpecialAttack(combat);
+        } else
+        {
+            witchAnim.SetAnim(State.Attack);
+            TriggerAttack(enemyData.BaseDamage * combat.dungeonLevel);
+        }
     }
 
     public void SpecialAttack(SO_CombatData combat)
     {
-
+        witchAnim.SetAnim(State.Special);
+        TriggerSpecial(enemyData.SpecialDamage * combat.dungeonLevel);
     }
 
     public void TakeDamage(float damage)

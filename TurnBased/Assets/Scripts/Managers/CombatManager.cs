@@ -52,6 +52,8 @@ public class CombatManager : MonoBehaviour
         playerFirst = playerTurn;
 
         combatGoing = true;
+
+        hudCombat.SetSkillBtns(playerTurn);
     }
     
     private void PlayByTurn()
@@ -71,6 +73,7 @@ public class CombatManager : MonoBehaviour
 
     private void PassTurn()
     {
+        if (!combatGoing) return;
         fighterPlaying = false;
         playerTurn = !playerTurn;
 
@@ -98,6 +101,12 @@ public class CombatManager : MonoBehaviour
         enemy.OnCure += HandleEnemyCure;
         enemy.OnTakeDamage += HandleEnemyHurt;
         enemy.OnDeath += HandleEnemyDie;
+        enemy.OnChangeResis += HandleEnemyChangeResis;
+    }
+
+    private void HandleEnemyChangeResis()
+    {
+        hudCombat.SetEnemyResUI(enemy.enemyData.loyaltRes, enemy.enemyData.wisdomRes, enemy.enemyData.spiritRes, enemy.enemyData.expertiseRes);
     }
 
     private void HandleEnemyCure()

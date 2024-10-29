@@ -18,7 +18,7 @@ public class PlayerCombat : MonoBehaviour, ITakeDamage
     private PlayerAnim playerAnim;
     private PlayerState playerState;
     private PlayerCombatUI playerCombatUI;
-    private float baseLife = 18;
+    private float baseLife = 12;
 
     private void Start()
     {
@@ -91,7 +91,7 @@ public class PlayerCombat : MonoBehaviour, ITakeDamage
 
     public void SetPlayerLife(float dungeonLevel)
     {
-        life = baseLife + dungeonLevel;
-        maxLife = baseLife + dungeonLevel;
+        life = baseLife * dungeonLevel;
+        maxLife = baseLife * dungeonLevel;
     }
 }

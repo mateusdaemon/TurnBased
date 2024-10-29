@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: W_BaseAttack
   m_EditorClassIdentifier: 
   skillName: Wisdom Attack
-  baseDamage: 2
+  baseDamage: 3
   attribute: 1

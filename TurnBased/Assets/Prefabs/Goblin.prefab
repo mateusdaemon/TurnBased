@@ -60,7 +60,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 30
   m_TargetDisplay: 0
 --- !u!114 &2441805243420581372
 MonoBehaviour:
@@ -226,6 +226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: ba2abaa360149d74898c31067abdc1c5, type: 2}
   currentLife: 0
+  maxLife: 0
 --- !u!114 &8211178848364918438
 MonoBehaviour:
   m_ObjectHideFlags: 0

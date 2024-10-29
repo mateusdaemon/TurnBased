@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: L_BaseAttack
   m_EditorClassIdentifier: 
   skillName: Loyalt Attack
-  baseDamage: 5
+  baseDamage: 6
+  attribute: 0

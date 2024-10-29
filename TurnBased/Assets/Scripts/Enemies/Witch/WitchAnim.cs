@@ -27,6 +27,9 @@ public class WitchAnim : MonoBehaviour
             case State.Death:
                 animator.SetBool("death", true);
                 break;
+            case State.Special:
+                animator.SetTrigger("special");
+                break;
             case State.None:
                 break;
         }

@@ -15,7 +15,7 @@ public class Mushroom : Enemy, IDealDamage, ITakeDamage, IPoison
 
     public void Attack(SO_CombatData combat)
     {
-        if (combat.combatTurn % 2 == 0 && combat.combatTurn != 0)
+        if (combat.combatTurn % 3 == 0)
         {
             SpecialAttack(combat);
         }
