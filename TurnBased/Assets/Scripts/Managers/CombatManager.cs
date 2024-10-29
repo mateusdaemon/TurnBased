@@ -205,6 +205,6 @@ public class CombatManager : MonoBehaviour
 
     private void LoadPlayerDied()
     {
-        GameManager.Instance.PlayerDied();
+        GameManager.Instance.ResetDungeon();
     }
 }

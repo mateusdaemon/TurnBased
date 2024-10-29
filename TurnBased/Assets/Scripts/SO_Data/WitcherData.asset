@@ -16,7 +16,7 @@ MonoBehaviour:
   BaseDamage: 3
   SpecialDamage: 5
   loyaltRes: 100
-  wisdomRes: 50
-  spiritRes: 100
+  wisdomRes: 100
+  spiritRes: 50
   expertiseRes: 100
-  profilePic: {fileID: 21300000, guid: f52422ef74e7fdb4eabcb61cba396d9c, type: 3}
+  profilePic: {fileID: 21300000, guid: f23f2f16a62ff8e47848324bbcb9cd09, type: 3}

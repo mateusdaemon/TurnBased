@@ -156,13 +156,16 @@ public class GameManager : MonoBehaviour
                 nextScene = "Level6";
                 break;
             case 6:
-                nextScene = "Victory";
+                ResetDungeon();
                 break;
         }
 
-        ControllerHud.Instance.DisableControllerHUD();
-        combatData.dungeonLevel++;
-        LoadScene(nextScene);
+        if (combatData.dungeonLevel != 6)
+        {
+            ControllerHud.Instance.DisableControllerHUD();
+            combatData.dungeonLevel++;
+            LoadScene(nextScene);
+        }
     }
 
     public void LoadScene(string sceneName)
@@ -191,6 +194,9 @@ public class GameManager : MonoBehaviour
             case 5:
                 nextScene = "Level5Loot";
                 break;
+            case 6:
+                nextScene = "Victory";
+                break;
         }
 
         playerAttributes.available++;
@@ -200,7 +206,7 @@ public class GameManager : MonoBehaviour
         LoadScene(nextScene);
     }
 
-    internal void PlayerDied()
+    internal void ResetDungeon()
     {
         combatData.ResetData();
         playerAttributes.ResetAttributes();
