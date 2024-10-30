@@ -29,11 +29,19 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        MenuHud.Instance.playBtn.onClick.AddListener(HandlePlayBtn);
         RegisterStatsBtnsEvents();
 
         combatData.SetAliveEnemies(enemies);
         StatsHud.Instance.SetAvailablePoints(playerAttributes.available);
         OnChangeAtt += CheckAvailable;
+    }
+
+    private void HandlePlayBtn()
+    {
+        LoadScene("Prologue");
+        ControllerHud.Instance.EnableControllerHUD();
+        MenuHud.Instance.DisableMenu();
     }
 
     private void CheckAvailable()
