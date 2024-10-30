@@ -98,6 +98,11 @@ public class CombatHud : MonoBehaviour
         }
     }
 
+    public void SetWaitingOrder()
+    {
+        nextFighterTxt.text = "Deciding Order";
+    }
+
     public void TurnIndicator(int turn)
     {
         turnIndctr.text = turn.ToString();

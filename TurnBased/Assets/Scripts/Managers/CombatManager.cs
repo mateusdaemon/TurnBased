@@ -26,12 +26,14 @@ public class CombatManager : MonoBehaviour
         enemy.SetEnemeyLife(combatData.dungeonLevel);
 
         hudCombat.SetPlayerAttributes(player.attributes);
+        hudCombat.SetSkillBtns(false);
+        hudCombat.SetWaitingOrder();
 
         RegisterEnemyEvents();
         RegisterPlayerEvents();
         FillEnemyHudInfo(enemy.enemyData);
 
-        DecideCombatOrder();
+        Invoke("DecideCombatOrder", 1.5f);
 
         combatData.combatTurn = 1;
         hudCombat.TurnIndicator(combatData.combatTurn);
@@ -203,11 +205,31 @@ public class CombatManager : MonoBehaviour
 
     private void LoadLootScene()
     {
+        RemoveListeners();
+        player.RemoveListeners();
         GameManager.Instance.LoadLootScene();
     }
 
     private void LoadPlayerDied()
     {
+        RemoveListeners();
+        player.RemoveListeners();
         GameManager.Instance.ResetDungeon();
+    }
+
+    private void RemoveListeners()
+    {
+        // Player actions
+        player.OnAttack -= HandlePlayerAttack;
+        player.OnTakeDamage -= HandlePlayerDamage;
+        player.OnDeath -= HandlePlayerDie;
+
+        // Enemy actions
+        enemy.OnAttack -= HandleEnemyAtk;
+        enemy.OnSpecial -= HandleEnemySAtk;
+        enemy.OnCure -= HandleEnemyCure;
+        enemy.OnTakeDamage -= HandleEnemyHurt;
+        enemy.OnDeath -= HandleEnemyDie;
+        enemy.OnChangeResis -= HandleEnemyChangeResis;
     }
 }

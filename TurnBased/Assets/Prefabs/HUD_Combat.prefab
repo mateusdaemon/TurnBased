@@ -4183,7 +4183,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You play
+  m_text: Deciding order
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b478ceb253b0f5e40a4d3d9babeb56b1, type: 2}
   m_sharedMaterial: {fileID: -1091049246166738368, guid: b478ceb253b0f5e40a4d3d9babeb56b1, type: 2}

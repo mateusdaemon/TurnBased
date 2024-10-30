@@ -41,4 +41,6 @@ public class PlayerInputUI : MonoBehaviour
     {
         LoyatAttack?.Invoke();
     }
+
+
 }

@@ -94,4 +94,13 @@ public class PlayerCombat : MonoBehaviour, ITakeDamage
         life = baseLife * dungeonLevel;
         maxLife = baseLife * dungeonLevel;
     }
+
+    internal void RemoveListeners()
+    {
+        playerInputSkill.LoyatAttack -= AttackLoyal;
+        playerInputSkill.WisdomAttack -= AttackWisdom;
+        playerInputSkill.SpiritAttack -= AttackSpirit;
+        playerInputSkill.ExpertiseAttack -= AttackExpertise;
+        OnAttack -= PlayerAttackEvent;
+    }
 }
