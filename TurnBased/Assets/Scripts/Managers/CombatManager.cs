@@ -25,6 +25,8 @@ public class CombatManager : MonoBehaviour
         player.SetPlayerLife(combatData.dungeonLevel);
         enemy.SetEnemeyLife(combatData.dungeonLevel);
 
+        hudCombat.SetPlayerAttributes(player.attributes);
+
         RegisterEnemyEvents();
         RegisterPlayerEvents();
         FillEnemyHudInfo(enemy.enemyData);

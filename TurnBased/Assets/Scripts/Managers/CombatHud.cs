@@ -14,6 +14,12 @@ public class CombatHud : MonoBehaviour
     public TextMeshProUGUI playerLifetxt;
     public TextMeshProUGUI enemyLifetxt;
 
+    [Header("Player Attributes")]
+    public TextMeshProUGUI loyaltAtt;
+    public TextMeshProUGUI wisdomAtt;
+    public TextMeshProUGUI spiritAtt;
+    public TextMeshProUGUI expertiseAtt;
+
     [Header("Skill buttons")]
     public Button loyalt;
     public Button wisdom;
@@ -62,6 +68,14 @@ public class CombatHud : MonoBehaviour
         wisdomRes.text = wisdomVal + "%";
         spiritRes.text = spiritVal + "%";
         expertiseRes.text = expertiseVal + "%";
+    }
+
+    public void SetPlayerAttributes(SO_PlayerAttributes playerAttributes)
+    {
+        loyaltAtt.text = playerAttributes.loyalty.ToString();
+        wisdomAtt.text = playerAttributes.wisdom.ToString();
+        spiritAtt.text = playerAttributes.spirit.ToString();
+        expertiseAtt.text = playerAttributes.expertise.ToString();
     }
 
     public void SetEnemyPicture(Sprite sprite)
