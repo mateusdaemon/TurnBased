@@ -89,6 +89,11 @@ public class SO_CombatData : ScriptableObject, ISerializationCallbackReceiver
             aliveEnemies.Clear();
         }
 
-        aliveEnemies = enemies;
+        foreach (Enemy enemy in enemies)
+        {
+            aliveEnemies.Add(enemy);
+        }
+
+        aliveEnemies = aliveEnemies.OrderBy(x => Random.value).ToList();
     }
 }

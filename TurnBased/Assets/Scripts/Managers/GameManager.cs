@@ -134,6 +134,7 @@ public class GameManager : MonoBehaviour
     public void LoadNextFight()
     {
         string nextScene = null;
+        bool reset = false;
 
         switch (combatData.dungeonLevel)
         {
@@ -157,10 +158,11 @@ public class GameManager : MonoBehaviour
                 break;
             case 6:
                 ResetDungeon();
+                reset = true;
                 break;
         }
 
-        if (combatData.dungeonLevel != 6)
+        if (!reset)
         {
             ControllerHud.Instance.DisableControllerHUD();
             combatData.dungeonLevel++;

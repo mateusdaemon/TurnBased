@@ -29,7 +29,7 @@ public class Witcher : Enemy, IDealDamage, ITakeDamage
         else
         {
             witcherAnim.SetAnim(State.Attack);
-            TriggerAttack(enemyData.SpecialDamage * combat.dungeonLevel);
+            TriggerAttack(enemyData.BaseDamage * combat.dungeonLevel);
         }
     }
 
@@ -64,7 +64,7 @@ public class Witcher : Enemy, IDealDamage, ITakeDamage
     public void SpecialAttack(SO_CombatData combat)
     {
         witcherAnim.SetAnim(State.Special);
-        TriggerSpecial(enemyData.BaseDamage * combat.dungeonLevel);
+        TriggerSpecial(enemyData.SpecialDamage * combat.dungeonLevel);
     }
 
     public void TakeDamage(float damage)
