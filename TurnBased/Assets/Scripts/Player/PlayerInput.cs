@@ -9,13 +9,13 @@ public class PlayerInput : MonoBehaviour
     public Vector2 MovementInputDirection { get; private set; }
     public Button InteractButton { get; private set; }
 
-    private FixedJoystick joystick;
+    private FloatingJoystick joystick;
     private ControllerHud controllers;
 
     // Start is called before the first frame update
     private void Awake()
     {
-        joystick = FindObjectOfType<FixedJoystick>();
+        joystick = FindObjectOfType<FloatingJoystick>();
         controllers = FindObjectOfType<ControllerHud>();
         InteractButton = controllers.interactBtn;
     }

@@ -160,6 +160,7 @@ public class CombatManager : MonoBehaviour
         }
 
         enemy.GetComponent<ITakeDamage>().TakeDamage(damageToEnemy);
+        hudCombat.SetSkillBtns(false);
         PassTurn();
     }
 
